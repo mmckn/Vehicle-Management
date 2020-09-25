@@ -1,0 +1,46 @@
+﻿
+
+
+@model IList<Vehicle>
+
+
+<h2 class="text-center mt-5">Vehicle List </h2>
+<p>
+         <a asp-action="AddVehicles" class="btn btn-primary">Add Vehicle</a>
+    <a asp-action="DeleteVehicleById" class="btn btn-danger">Delete Vehicle</a>
+                </p>
+ <div class=" card-deck" >
+
+@foreach (var v in Model)
+{
+   
+        <div class=" card rounded border-dark shadow hover mr-4 mt-4" style=" min-width:20rem; max-width: 20rem;">
+            
+                <img class = "card-img-top" style="max-height: 10rem" src=@v.Photo/>
+                <div class="card-body ">
+                    <h5 class="text-center">@v.RegistrationNumber</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Model:</b> @v.Model</li>
+                        <li class="list-group-item"><b>Make:</b> @v.Make</li>
+                <Li class="list-group-item"><b>Fuel Type:</b> @v.FuelType</li>
+                        <li class="list-group-item"><b>Doors:</b> @v.NumberOfDoors</li>
+                        
+                </ul>
+                <div class="card-body">
+                        
+                    <a asp-action="ServiceInformation" class="btn btn-primary" asp-route-id=@v.Id >View/Edit</a>
+                    <a asp-action="DeleteVehicleIndividual" class="btn btn-danger" asp-route-id=@v.Id>Delete</a>
+                </div>
+                
+
+
+            
+
+               
+        
+</div>
+        </div>
+
+
+}
+ </div>

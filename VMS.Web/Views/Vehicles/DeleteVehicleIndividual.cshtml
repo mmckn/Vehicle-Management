@@ -1,0 +1,31 @@
+﻿@model Vehicle
+
+
+
+<h3 class="mb-4 text-center">Delete Vehicle?</h3>
+
+ <div class=" card rounded border-dark shadow hover mr-4 mt-4" style=" max-width: 80rem;">
+            
+                <img class = "card-img-top"  src=@Model.Photo/>
+                <div class="card-body ">
+                    <h5 class="text-center">@Model.RegistrationNumber</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>Model:</b> @Model.Model</li>
+                        <li class="list-group-item"><b>Make:</b> @Model.Make</li>
+                <Li class="list-group-item"><b>Fuel Type:</b> @Model.FuelType</li>
+                        <li class="list-group-item"><b>Doors:</b> @Model.NumberOfDoors</li>
+                        
+                </ul>
+             
+                </div>
+
+  
+<form asp-action=DeleteVehicleFinal method="POST">
+        <input type="hidden" name="Id" value=@Model.Id />
+
+        <div class="form-group">
+            <input type="submit" value="delete" class="btn btn-danger"/>
+            <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+        </div>
+    </form>
+</div>

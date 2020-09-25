@@ -1,0 +1,58 @@
+﻿
+@model Vehicle
+
+
+
+
+
+
+
+
+<h3 class="text-center mt-5">Add a New Vehicle </h3>
+<form asp-action="AddVehicles">
+     <div asp-validation-summary="ModelOnly" class="text-secondary"></div>
+    <div>
+        <div class="form-group">
+            <label asp-for="Make"><b>Make</b></label>
+            <input asp-for="Make" type="text" class="form-control" placeholder="Enter vehicle Make"/>
+            <span asp-validation-for="Make" class="text-secondary"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Model"><b>Model</b></label>
+            <input asp-for="Model" type="text" class="form-control" placeholder="Enter vehicle Model"/>
+            <span asp-validation-for="Model" class="text-secondary"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="RegistrationNumber"><b>Registration Number</b></label>
+            <input asp-for="RegistrationNumber" type="text" class="form-control" placeholder="Enter vehicle Registration"/>
+            <span asp-validation-for="RegistrationNumber" class="text-secondary"></span>
+        </div>
+        
+        <div class="form-group">
+            <label asp-for="FuelType"><b>Fuel Type</b></label>
+            <input asp-for="FuelType" type="text" class="form-control" placeholder="Enter vehicle Fuel Type"/>
+            <span asp-validation-for="FuelType" class="text-secondary"></span>
+        </div>
+        
+        <div class="form-group">
+                             <label asp-for="NumberOfDoors"><b>Number Of Doors</b></label>
+                                    <input asp-for="NumberOfDoors" type="text" class="form-control" placeholder="Enter Number of Doors"/>
+                                    <span asp-validation-for="NumberOfDoors" class="text-secondary"></span>
+                                </div>
+        
+           <div class="form-group">
+                     <label asp-for="Photo"><b>Photo Url</b></label>
+                            <input asp-for="Photo" type="text" class="form-control" placeholder="Enter vehicle Photo Url"/>
+                            <span asp-validation-for="Photo" class="text-secondary"></span>
+                        </div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Vehicle" class="btn btn-primary"/>
+        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+
+
+    </div>
+</form>
+
+

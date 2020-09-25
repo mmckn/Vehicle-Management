@@ -1,0 +1,125 @@
+﻿@model ServiceAndVehicleViewModel
+
+<div>
+    <h3>Service List</h3>
+    <div class="mt-4 mb-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Mechanic Name</th>
+            <th>Vehicle Mileage</th>  
+            <th>Repair Summary</th>
+              <th>Cost</th>
+            <th>Date</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        @foreach(var s in Model.Services) {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.MechanicName</td>
+                <td>@s.VehicleMileage</td>
+                <td>@s.RepairSummary</td>
+                <td>@s.ServiceCost</td>
+                <td>@s.ServiceDate</td>
+            <td>
+                <a asp-action="DeleteServiceRecordIndividual" class="btn btn-danger" asp-route-id=@s.Id >Delete</a>
+                
+            </td>
+                </tr>
+            
+        }
+        </tbody>
+    </table>
+</div>
+
+
+            
+                       
+           
+   
+        
+           
+             
+            
+             
+                
+                     <div class=" card rounded border-dark shadow hover mr-4 mt-4 mb-2" style="  max-width: 80rem;  align-self: center; justify-content: center">
+                         
+                             <img class = "card-img-top" style="max-height:30rem;"  src=@Model.Vehicles.Photo/>
+                             <div class="card-body ">
+                                 <h5 class="text-center">@Model.Vehicles.RegistrationNumber</h5>
+                                 <ul class="list-group list-group-flush">
+                                     <li class="list-group-item"><b>Model:</b> @Model.Vehicles.Model</li>
+                                     <li class="list-group-item"><b>Make:</b> @Model.Vehicles.Make</li>
+                             <Li class="list-group-item"><b>Fuel Type:</b> @Model.Vehicles.FuelType</li>
+                                     <li class="list-group-item"><b>Doors:</b> @Model.Vehicles.NumberOfDoors</li>
+                                      <li class="list-group-item"><b>Id:</b> @Model.Vehicles.Id</li>
+                                     <li class="list-group-item">      
+                                 <a class="btn btn-primary" data-toggle="collapse" href="#collapseEdit" role="button" aria-expanded="false" aria-controls="collapseEdit">Edit Vehicle</a>
+                                 <a asp-action="DeleteVehicleIndividual" class="btn btn-danger" asp-route-id=@Model.Vehicles.Id>Delete</a></li>
+                             </ul>
+                             <div class="card-body">
+                               
+                             </div>    
+             </div>
+                     </div>
+
+@using (Html.BeginForm())
+{
+   
+  
+
+    <form asp-action="ServiceInformation" method="POST">
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+                        <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+        </div>
+        <div class=" collapse" id="collapseEdit">
+
+            <input type="hidden" asp-for="@Model.Vehicles.Id" class="form-control" />
+
+
+            <div class="form-group">
+                <label asp-for="@Model.Vehicles.Make" class="font-weight-bold control-label"></label>
+                <input asp-for="@Model.Vehicles.Make" class="form-control" placeHolder="new make"/>
+                <span asp-validation-for="@Model.Vehicles.Make" class="text-warning"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Vehicles.Model" class="font-weight-bold control-label"></label>
+                <input asp-for="@Model.Vehicles.Model" class="form-control" placeHolder="new Model"/>
+                <span asp-validation-for="@Model.Vehicles.Model" class="text-warning"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="@Model.Vehicles.RegistrationNumber" class="font-weight-bold control-label"></label>
+                <input asp-for="@Model.Vehicles.RegistrationNumber" class="form-control" placeHolder="new Registration Number"/>
+                <span asp-validation-for="@Model.Vehicles.RegistrationNumber" class="text-warning"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="@Model.Vehicles.NumberOfDoors" class="font-weight-bold control-label"></label>
+                <input asp-for="@Model.Vehicles.NumberOfDoors" class="form-control" placeHolder="Number of Doors"/>
+                <span asp-validation-for="@Model.Vehicles.NumberOfDoors" class="text-warning"></span>
+            </div>
+            
+             <div class="form-group">
+                 <label asp-for="@Model.Vehicles.FuelType" class="font-weight-bold control-label"></label>
+                 <input asp-for="@Model.Vehicles.FuelType" class="form-control" placeHolder="new Fuel Type"/>
+                 <span asp-validation-for="@Model.Vehicles.FuelType" class="text-warning"></span>
+                                    </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary"/>
+                <a class="btn btn-secondary" asp-action="Index">Cancel </a> 
+            </div>
+        </div>
+    </form>
+}
+</div>
+    
+
+
+
+

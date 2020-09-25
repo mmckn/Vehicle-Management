@@ -1,0 +1,46 @@
+﻿@model Service
+
+
+
+<h3 class="text-center mt-5 mb-4">Delete Service Record?</h3>
+
+
+<div class="mt-4 mb-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Mechanic Name</th>
+            <th>Mileage</th>
+            <th>Repair Summary</th>
+            <th> Cost</th>
+            <th>Date</th>
+           
+        
+        </tr>
+        </thead>
+        <tbody>
+     
+            <tr>
+                <td>@Model.Id</td>
+                <td>@Model.MechanicName</td>
+                <td>@Model.VehicleMileage</td>
+                <td>@Model.RepairSummary</td>
+                <td>@Model.ServiceCost</td>
+                <td>@Model.ServiceDate</td>
+           
+                </tr>
+            
+        
+        </tbody>
+    </table>
+</div>
+  
+<form asp-action=DeleteServiceFinal method="POST">
+        <input type="hidden" name="Id" value=@Model.Id />
+
+        <div class="form-group">
+            <input type="submit" value="delete" class="btn btn-danger"/>
+            <a class="btn btn-secondary" asp-action="Index">Cancel</a>
+        </div>
+    </form>
